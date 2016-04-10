@@ -5,7 +5,7 @@ addons:
    apt:
       packages:
          - cmake
-         - ninja
+         - ninja-build
 
 compiler:
    - clang
