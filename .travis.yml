@@ -7,14 +7,14 @@ os:
 # Add extra sources and common packages
 #
 addons:
-  sources:
-    # The Travis apt source whitelist can be found here:
-    # https://github.com/travis-ci/apt-source-whitelist/blob/master/ubuntu.json
-    - ubuntu-toolchain-r-test     # for gcc, glibc, libstdc++ at various versions
-    - llvm-toolchain-precise-3.5  # for clang-3.5
-    - llvm-toolchain-precise-3.8  # for clang-3.8
-    - kalakris-cmake              # for cmake-2.8.11.2
   apt:
+    sources:
+      # The Travis apt source whitelist can be found here:
+      # https://github.com/travis-ci/apt-source-whitelist/blob/master/ubuntu.json
+      - ubuntu-toolchain-r-test     # for gcc, glibc, libstdc++ at various versions
+      - llvm-toolchain-precise-3.5  # for clang-3.5
+      - llvm-toolchain-precise-3.8  # for clang-3.8
+      - kalakris-cmake              # for cmake-2.8.11.2
     packages:
       - cmake
       - ninja-build
@@ -48,7 +48,7 @@ matrix:
 #       env: COMPILER_VERSION=3.8
     - addons:
         packages:
-          - gcc-4.9
+          - g++-4.9
         compiler:
           - gcc-4.9
         env: COMPILER_VERSION=4.9
