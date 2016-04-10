@@ -63,5 +63,6 @@ matrix:
 script:
   - mkdir build && cd build
   - cmake -DCMAKE_BUILD_TYPE=$BUILD_TYPE -GNinja ..
-  - "cmake --build  . -- -j ${CORES}"
+  - ninja -j ${CORES}
+#  - "cmake --build  . -- -j ${CORES}"
   - ctest --output-on-failure
