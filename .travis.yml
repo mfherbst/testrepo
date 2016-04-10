@@ -3,41 +3,75 @@ sudo: false
 os:
   - linux
 
-addons:
-  apt:
-    sources:
-      # The Travis apt source whitelist can be found here:
-      # https://github.com/travis-ci/apt-source-whitelist/blob/master/ubuntu.json
-      - ubuntu-toolchain-r-test     # for gcc, glibc, libstdc++ at various versions
-      - llvm-toolchain-precise-3.5  # for clang-3.5
-      - llvm-toolchain-precise-3.8  # for clang-3.8
-      - kalakris-cmake              # for cmake-2.8.11.2
-    packages:
-      - cmake
-      - ninja-build
-      - g++-4.9
-      - g++-5
-      - clang-3.5
-      - clang-3.8
 #
-# Matrix of compilers:
+# Matrix of builds
 #
 matrix:
   include:
     # Clang 3.5
-    - compiler: clang
+    - addons:
+        apt:
+          sources:
+            # The Travis apt source whitelist can be found here:
+            # https://github.com/travis-ci/apt-source-whitelist/blob/master/ubuntu.json
+            - ubuntu-toolchain-r-test     # for gcc, glibc, libstdc++ at various versions
+            - llvm-toolchain-precise-3.5  # for clang-3.5
+            - kalakris-cmake              # for cmake-2.8.11.2
+          packages:
+            - cmake
+            - ninja-build
+            - g++-4.9
+            - clang-3.5
+      compiler: clang
       env: COMPILER_VERSION=3.5 BUILD_TYPE=Release CORES=1
     
     # Clang 3.8
-    - compiler: clang
+    - addons:
+        apt:
+          sources:
+            # The Travis apt source whitelist can be found here:
+            # https://github.com/travis-ci/apt-source-whitelist/blob/master/ubuntu.json
+            - ubuntu-toolchain-r-test     # for gcc, glibc, libstdc++ at various versions
+            - llvm-toolchain-precise-3.8  # for clang-3.8
+            - kalakris-cmake              # for cmake-2.8.11.2
+          packages:
+            - cmake
+            - ninja-build
+            - g++-5
+            - clang-3.8
+      compiler: clang
       env: COMPILER_VERSION=3.8 BUILD_TYPE=Release CORES=1
     
     # Gcc 4.9
-    - compiler: gcc
+    - addons:
+        apt:
+          sources:
+            # The Travis apt source whitelist can be found here:
+            # https://github.com/travis-ci/apt-source-whitelist/blob/master/ubuntu.json
+            - ubuntu-toolchain-r-test     # for gcc, glibc, libstdc++ at various versions
+            - llvm-toolchain-precise-3.5  # for clang-3.5
+            - kalakris-cmake              # for cmake-2.8.11.2
+          packages:
+            - cmake
+            - ninja-build
+            - g++-4.9
+      compiler: gcc
       env: COMPILER_VERSION=4.9 BUILD_TYPE=Release CORES=1
     
     # Gcc 5
-    - compiler: gcc
+    - addons:
+        apt:
+          sources:
+            # The Travis apt source whitelist can be found here:
+            # https://github.com/travis-ci/apt-source-whitelist/blob/master/ubuntu.json
+            - ubuntu-toolchain-r-test     # for gcc, glibc, libstdc++ at various versions
+            - llvm-toolchain-precise-3.5  # for clang-3.5
+            - kalakris-cmake              # for cmake-2.8.11.2
+          packages:
+            - cmake
+            - ninja-build
+            - g++-5
+      compiler: gcc
       env: COMPILER_VERSION=5 BUILD_TYPE=Release CORES=1
 
 script:
