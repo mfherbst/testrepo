@@ -34,34 +34,34 @@ env:
 #
 matrix:
   include:
-#   - addons:
-#       packages:
-#         - clang-3.5
-#       compiler:
-#         - clang
-#       env: COMPILER_VERSION=3.5
-#   - addons:
-#       packages:
-#         - clang-3.8
-#       compiler:
-#         - clang
-#       env: COMPILER_VERSION=3.8
+   - addons:
+       packages:
+         - clang-3.5
+       compiler:
+         - clang
+       env: COMPILER_VERSION=3.5
+   - addons:
+       packages:
+         - clang-3.8
+       compiler:
+         - clang
+       env: COMPILER_VERSION=3.8
     - addons:
         packages:
           - g++-4.9
         compiler:
           - gcc-4.9
         env: COMPILER_VERSION=4.9
-#    - addons:
-#        packages:
-#          - gcc-5
-#        compiler:
-#          - gcc
-#        env: COMPILER_VERSION=5
+    - addons:
+        packages:
+          - gcc-5
+        compiler:
+          - gcc
+        env: COMPILER_VERSION=5
 
 
 script:
   - mkdir build && cd build
   - cmake -DCMAKE_BUILD_TYPE=$BUILD_TYPE -GNinja ..
-  - cmake --build  . -j ${CORES}
+  - cmake --build  . -- -j ${CORES}
   - ctest --output-on-failure
