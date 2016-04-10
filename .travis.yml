@@ -3,11 +3,6 @@ sudo: false
 os:
   - linux
 
-env:
-  global:
-    - CORES=1
-    - BUILD_TYPE=Release
-
 #
 # Matrix of compilers:
 #
@@ -31,22 +26,22 @@ matrix:
             - clang-3.5
             - clang-3.8
       compiler: clang
-      env: COMPILER_VERSION=3.5
+      env: COMPILER_VERSION=3.5 BUILD_TYPE=Release CORES=1
     
     # Clang 3.8
     - addons: *defaultaddons
       compiler: clang
-      env: COMPILER_VERSION=3.8
+      env: COMPILER_VERSION=3.8 BUILD_TYPE=Release CORES=1
     
     # Gcc 4.9
     - addons: *defaultaddons
       compiler: gcc
-      env: COMPILER_VERSION=4.9
+      env: COMPILER_VERSION=4.9 BUILD_TYPE=Release CORES=1
     
     # Gcc 5
     - addons: *defaultaddons
       compiler: gcc
-      env: COMPILER_VERSION=5
+      env: COMPILER_VERSION=5 BUILD_TYPE=Release CORES=1
 
 script:
   - mkdir build && cd build
