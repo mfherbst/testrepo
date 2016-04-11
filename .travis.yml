@@ -4,7 +4,7 @@ sudo: false
 install:
   # Setup the environment such that the correct compilers are chosen
   # The first arg gives the gcc version, the second the clang version.
-  - source ci/travis/travis_install.sh "gcc-4.9" "clang-3.8"
+  - source ci/travis/install.sh "gcc-4.9" "clang-3.8"
 
 addons:
   apt:
