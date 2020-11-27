@@ -1,0 +1,8 @@
+name = "testrepo"
+uuid = "62c9109f-b26b-4001-8216-cfa25a96fe69"
+authors = ["Michael F. Herbst <info@michael-herbst.com>"]
+version = "0.1.0"
+
+[deps]
+Printf = "de0858da-6303-5e67-8744-51eddeeeb8d7"
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
