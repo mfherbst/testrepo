@@ -34,7 +34,7 @@ jobs:
       - uses: julia-actions/julia-buildpkg@latest
       - uses: julia-actions/julia-runtest@latest
       - uses: julia-actions/julia-processcoverage@v1
-      - run: julia --color=yes -e 'using Pkg; Pkg.add(url="https://github.com/mfherbst/Coverage.julia", rev="coveralls"); using Coverage; Coveralls.submit(process_folder())'
+      - run: julia --color=yes -e 'using Pkg; Pkg.add(url="https://github.com/mfherbst/Coverage.jl", rev="coveralls"); using Coverage; Coveralls.submit(process_folder())'
         shell: bash
         env:
           COVERALLS_TOKEN: ${{ secrets.COVERALLS_TOKEN }}
